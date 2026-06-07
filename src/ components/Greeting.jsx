@@ -4,9 +4,13 @@ const Greeting = ({ name }) => {
   /* TODO: if name is empty, render "Hello, stranger!" */
   /* TODO: if name is NOT a string, render "Hello???" */
   let nameToUse = name;
-  if (typeof name !== "string") {
+  if (
+    name !== undefined && //no param provided
+    typeof name !== "string" // e.g. {123}
+  ) {
     return <div>Hello???</div>;
   }
+
   if (!nameToUse) nameToUse = "stranger";
   return <div>Hello, {nameToUse}!</div>;
 };
